@@ -53,7 +53,7 @@ async def My(ctx):
     await ctx.send(f'โปรดพิมพ์ !am <ชื่อเล่น> <อายุ> <เพศ> {ctx.author.name}!')
 
 @client.command()
-async def am(ctx, !, arg):
+async def am(ctx, *, arg):
     await ctx.send(arg)
 
 @client.tree.command(name='hellobot', description='ตอบกลับด้วย Hello')
