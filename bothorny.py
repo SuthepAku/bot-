@@ -34,20 +34,6 @@ async def on_member_remove(member):
         tex = f"{member.mention} ลาก่อนจาก {member.guild.name}!"
         await channel.send(tex)
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
-    mes = message.content
-    if mes == 'hello bot':
-        await message.channel.send('Hello! I am bot')
-    elif mes == 'hi bot':
-        await message.channel.send(f'Hello! I am bot {message.author.name}')
-    elif mes == 'ชื่อเล่น อายุ เพศ':
-        await message.channel.send(f'ok {message.author.name}')
-    await client.process_commands(message)
-
 @client.command()
 async def My(ctx):
     await ctx.send(f'โปรดพิมพ์ !am <ชื่อเล่น> <อายุ> <เพศ> {ctx.author.name}!')
@@ -76,14 +62,22 @@ async def namecommand(interaction: discord.Interaction, name: str):
         await channel.send(f'ผู้ใช้ {interaction.user.mention} ได้แนะนำตัวว่า: {name}')
 
     # ตอบกลับการอินเตอร์แอคชั่น
-    await interaction.followup.send('ok!แนะนำตัวเสร็จแล้ว โปรพิมพ์*K ตัวพิมพ์ใหญ่นะ เพื่อเข้ามาEnjoy')
+    await interaction.followup.send('ok! แนะนำตัวเสร็จแล้ว โปรดพิมพ์ !H ตัวพิมพ์ใหญ่นะ เพื่อเข้ามา Enjoy')
 
 @client.event
 async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content == '!H':
+    mes = message.content
+    if mes == 'hello bot':
+        await message.channel.send('Hello! I am bot')
+    elif mes == 'hi bot':
+        await message.channel.send(f'Hello! I am bot {message.author.name}')
+    elif mes == 'ชื่อเล่น อายุ เพศ':
+        await message.channel.send(f'ok {message.author.name}')
+
+    if mes == '!H':
         # ตรวจสอบว่าผู้ใช้ได้แนะนำตัวแล้วหรือยัง
         if user_introductions.get(message.author.id, False):
             role_name = "1101"
