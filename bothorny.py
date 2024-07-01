@@ -83,7 +83,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content == '!K':
+    if message.content == '!H':
         # ตรวจสอบว่าผู้ใช้ได้แนะนำตัวแล้วหรือยัง
         if user_introductions.get(message.author.id, False):
             role_name = "1101"
