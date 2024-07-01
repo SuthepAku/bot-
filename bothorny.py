@@ -24,7 +24,7 @@ async def on_ready():
 async def on_member_join(member):
     channel = client.get_channel(1256977666414874764)
     if channel is not None:
-        tex = f"{member.mention} ยินดีต้อนรับ! กรุณาแนะนำตัวด้วยการใช้คำสั่ง `/แนะนำตัว` โดยใส่ชื่อเล่น อายุ และเพศของคุณใน {member.guild.name}!"
+        tex = f"{member.mention} ยินดีต้อนรับ! กรุณาแนะนำตัวด้วยการใช้คำสั่ง `/แนะนำตัว` โดยใส่ชื่อเล่น อายุ และเพศของคุณ {member.guild.name}!"
         await channel.send(tex)
 
 @client.event
